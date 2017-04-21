@@ -98,7 +98,7 @@ NTSTATUS SCDDeviceControl(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 	ULONG nBufLen = 0;
 	PSCD_IOCTL_IN_BUFFER inBuf = NULL;
 	PIO_STACK_LOCATION  irpSp = NULL;
-	NTSTATUS ntStatus = STATUS_INSUFFICIENT_RESOURCES;
+	NTSTATUS ntStatus = STATUS_INVALID_DEVICE_REQUEST;
 
 	UNREFERENCED_PARAMETER(DeviceObject);
 
@@ -110,7 +110,7 @@ NTSTATUS SCDDeviceControl(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 	{
 		nBufLen = irpSp->Parameters.DeviceIoControl.InputBufferLength;
 
-		ntStatus = STATUS_FLOAT_DIVIDE_BY_ZERO;
+		ntStatus = STATUS_INVALID_BUFFER_SIZE;
 		if (nBufLen == sizeof(void*))
 		{
 			inBuf = (PSCD_IOCTL_IN_BUFFER)Irp->AssociatedIrp.SystemBuffer;
