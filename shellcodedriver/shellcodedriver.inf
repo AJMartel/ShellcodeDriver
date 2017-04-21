@@ -1,0 +1,32 @@
+;
+; shellcodedriver.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=
+ClassGuid={07f61cba-6d24-435c-86d6-0ee7f4992799}
+Provider=zerosum0x0
+DriverVer=
+CatalogFile=shellcodedriver.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+
+
+[Strings]
+ManufacturerName=""
+ClassName=""
+DiskName="shellcodedriver Source Disk"
